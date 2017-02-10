@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Great Number Game</title>
+        <style>
+            #result{
+                width: 10em;
+                height: 10em;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 2em;
+                /*background: blue;*/
+            }
+            #result h3{
+                padding-top: 3em;
+                padding-left: 2em;
+                color: white;
+            }
+
+            #result input{
+                margin-left: 3em;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h3><center>Welcome to the great number game</center></h3>
+        <h4><center>I am thinking of a number between 1 to 100</center></h4>
+        <p><center>Take a guess</center></p>
+
+            {%if session['res'] == 'high'%}
+            <div id='result' style='background: red'><h3>Too High</h3></div>
+            {%elif  session['res'] == 'low'%}
+            <div id='result' style='background: red'><h3>Too Low</h3></div>
+            {%elif  session['res'] == 'per'%}
+            <div id='result' style='background: green'><h3>{{session['num']}} is the number</h3>
+                <form action='/reset' method='post'>
+                    <input type='submit' value='Play Again'>
+                </form>
+            </div>
+            {%endif%}
+
+        <center>
+         {%if session['res'] != 'per'%}
+        <form action='/numberIN' method='post'>
+        {%else%}
+        <form action='/numberIN' method='post' style='visibility: hidden'>
+        {%endif%}
+            <input type='text' name='guess' >
+            <input type='submit' value='Submit'>
+        </form>
+        </center>
+        
+
+        
+
+    </body>
+</html>
