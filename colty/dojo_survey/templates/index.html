@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Dojo Survey Index</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <script src="{{ url_for('static', filename='css/bootstrap.min.js') }}">
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dojo_survey.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <h4 class="bg-danger">{{message}}</h4>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <h1>Dojo Survey</h1>
+                <form action="/process" method="POST" class="form-horizontal">
+                    <div class="form-group">
+                        <label for="name1">Name</label>
+                        <input type="text" name="name" class="form-control" id="name1" placeholder="enter name">
+                    </div>
+                    <div class="form-group">
+                        <label for="location1">Dojo Location</label>
+                        <select name="location" class="form-control" id="location1">
+                    <option value="Seattle">Seattle</option>
+                    <option value="Chicago">Chicago</option>
+                    <option value="Silicon Valey">Silicon Valley</option>
+                    <option value="Los Angeles">Los Angeles</option>
+                    <option value="Dallas">Dallas</option>
+                    <option value="Washington DC">Washington DC</option>
+                    <option value="Berkeley">Berkeley</option>
+                    <option value="Orange County">Orange County</option>
+                </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="lang1">Favorite Language</label>
+                        <select name="lang" class="form-control" id="lang1">
+                    <option value="Python">Python</option>
+                    <option value="Javascript">Javascript</option>
+                </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment1">Comment (optional)</label>
+                        <textarea name="comment" class="form-control" rows "4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
