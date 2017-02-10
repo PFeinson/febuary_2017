@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <link rel = "stylesheet" type = "text/css" href="{{ url_for("static", filename="styles.css")}}">
+        <script type = "text/javascript" src = "#" /></script>
+        <title>Server.py</title>
+    </head>
+    <body>
+        <div id = "container">
+            <div id = "usGold">
+                <p>Your Gold: 
+                    <input type = "text" name = "userGold" value = {{gold}} />
+                </p>
+            </div>
+            <div id = "options">
+                <div class = "processOptions">
+                    <h3 class = "title">Farm</h3>
+                    <p class = "descriptor">(earns 10-20 gold)</p>
+                    <form action = "/process_money" method = "post">
+                        <input type = "hidden" name = "action" value = "farm" />
+                        <input type = "submit" value = "Find Gold!" />
+                    </form>
+                </div>
+                <div class = "processOptions">
+                    <h3 class = "title">Cave</h3>
+                    <p class = "descriptor">(earns 5-10 gold)</p>
+                    <form action = "/process_money" method = "post">
+                        <input type = "hidden" name = "action" value = "cave" />
+                        <input type = "submit" value = "Find Gold!" />
+                    </form>
+                </div>
+                <div class = "processOptions">
+                    <h3 class="title">House</h3>
+                    <p class = "descriptor">(earns 2-5 gold)</p>
+                    <form action = "/process_money" method = "post">
+                        <input type = "hidden" name = "action" value = "house" />
+                        <input type = "submit" value = "Find Gold!" />
+                    </form>
+                </div>
+                <div class = "processOptions">
+                    <h3 class = "title">Casino</h3>
+                    <p class = "descriptor">(earns/takes 0-50 gold)</p>
+                    <form action = "/process_money" method = "post">
+                        <input type = "hidden" name = "action" value = "casino" />
+                        <input type = "submit" value = "Find Gold!" />
+                    </form>
+                </div>
+            </div>
+            <p>Activities:</p>
+            <div id = "activities">
+                {% autoescape false %}
+                {{activities}}
+                {% endautoescape %}
+            </div>
+        </div>
+    </body>
+</html>

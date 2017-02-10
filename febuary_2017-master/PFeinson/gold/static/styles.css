@@ -1,0 +1,54 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+#container{
+    width:1100px;
+    display:inline-block;
+    vertical-align:top;
+}
+#usGold{
+    height:50px;
+    width:1000px;
+    display:inline-block;
+}
+
+#options {
+    width: 1000px;
+    height: 200px;
+    display:inline-block;
+}
+
+#activities{
+    width: 819px;
+    height: 400px;
+    border: 1px solid #000;
+}
+
+.processOptions {
+    width: 200px;
+    height:200px;
+    border: 1px solid #000;
+    display:inline-block;
+}
+
+.title {
+    text-align:center;
+}
+
+.descriptor {
+    text-align:center;
+}
+
+.green {
+    color:green;
+}
+
+.red {
+    color:red;
+}
+
+input {
+    margin-left:55px;
+    margin-top:100px;
+}
